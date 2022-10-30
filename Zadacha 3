@@ -1,0 +1,21 @@
+//Составить рекурсивную функцию int DigitSum(int x) целого типа, которая находит сумму цифр целого числа n, не используя операторы цикла
+#include <iostream>
+using namespace std;
+#include <math.h>
+
+int DigitSum(int x)
+{
+    int res;
+
+    if (x < 10 and x>0) return abs(x);
+    if (x<0 and x>-10) return abs(x);
+    res = abs(x) / 10;
+    return abs(x) - res * 10 + DigitSum(res);
+}
+
+int main()
+{
+    int x;
+    cin >> x;
+    cout << DigitSum(x);
+}
