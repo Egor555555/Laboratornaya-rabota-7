@@ -1,0 +1,25 @@
+//Описать рекурсивную функцию PowerN(x,n) вещественного типа, находящую значение n-й степени числа x по формуле: x0=1,x^n=x^n/2*2 x^n= x*x^n-1 при нечётных n>0, x^n=1/x^-n при n<0  
+//(x!=0 -вещественное число, n- целое). С помощью этой функции найти значение XN при 5 различных значениях N для данного X.
+#include <iostream>
+#include <cmath>
+using namespace std;
+double PowerN(double x, int n) {
+	if (n == 0) {
+		return 1.0;
+	}if (n < 0) {
+		return 1.0 / pow(x, -n);
+	}if (n > 0 and n % 2 != 0) {
+		return x * pow(x, n - 1);
+	}if (n > 0 and n % 2 == 0) {
+		return pow(x, n / 2 * 2);
+	}
+}
+int main()
+{
+	double x;
+	int n;
+	cin >> x >> n;
+	double s;
+	s = PowerN(x, n);
+	cout << s;
+}
