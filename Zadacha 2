@@ -1,0 +1,21 @@
+//Описать рекурсивную функцию Combin1(N, K) целого типа, находящую C(N, K) — число сочетаний из N элементов по K — с помощью рекуррентного соотношения. 
+//Дано число N и пять различных значений K. Вывести числа C(N, K) вместе с количеством рекурсивных вызовов функции Combin1, потребовавшихся для их нахождения.
+#include <iostream>
+#include <math.h>
+using namespace std;
+int cnt;
+int Combin1(int n, int k) {
+	cnt++;
+	if ((n == k) || (k == 0)) {
+		return 1;
+	}else
+	return Combin1(n - 1, k) + Combin1(n - 1, k-1);
+}
+int main()
+{
+	int n, k, c;
+	cnt = 0;
+	cin >> n >> k;
+	c = Combin1(n, k);
+	cout << c << cnt;
+}
